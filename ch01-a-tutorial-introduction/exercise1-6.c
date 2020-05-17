@@ -13,7 +13,6 @@
 #include <stdio.h>
 
 int main(){
-    
     while(getchar() != EOF)
         printf("The expression getchar() != EFO is %d\n", getchar() != EOF);
 
