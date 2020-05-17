@@ -6,6 +6,7 @@
  *      Apple clang version 11.0.3 (clang-1103.0.32.29)
  *      Target: x86_64-apple-darwin19.4.0
  *      Thread model: posix
+ *  Description: Verify that the expression getchar() != EOF is 0 or 1.
  * 
  * =====================================================================================
  */

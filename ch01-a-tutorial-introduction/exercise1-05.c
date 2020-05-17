@@ -6,6 +6,8 @@
  *      Apple clang version 11.0.3 (clang-1103.0.32.29)
  *      Target: x86_64-apple-darwin19.4.0
  *      Thread model: posix
+ *  Description: Modify the temperature conversion program to print the table in reverse order,
+ *  that is, from 300 degrees to 0.
  * 
  * =====================================================================================
  */
