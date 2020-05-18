@@ -14,7 +14,7 @@
  */
 
 #include <stdio.h>
-#define TAB 5
+#define TAB 3
 int main(){
     int c;
     int offset = 0;
