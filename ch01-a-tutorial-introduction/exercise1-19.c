@@ -6,7 +6,7 @@
  *      Apple clang version 11.0.3 (clang-1103.0.32.29)
  *      Target: x86_64-apple-darwin19.4.0
  *      Thread model: posix
- *  Description:Write a function reverse(s) that reverses the character string s. 
+ *  Description: Write a function reverse(s) that reverses the character string s. 
  *  Use it to write a program that reverses its input a line at a time.
  * 
  * =====================================================================================
