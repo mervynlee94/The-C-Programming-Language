@@ -6,7 +6,7 @@
  *      Apple clang version 11.0.3 (clang-1103.0.32.29)
  *      Target: x86_64-apple-darwin19.4.0
  *      Thread model: posix
- *  Description:Write a program to remove all comments from a C program. 
+ *  Description: Write a program to remove all comments from a C program. 
  *  Don't forget to handle quoted strings and character constants properly. 
  *  C comments don't nest.
  * 
