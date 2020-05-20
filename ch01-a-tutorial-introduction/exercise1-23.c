@@ -18,43 +18,51 @@
 /*
 We must assume the input is valid C program
 */
-void skipComment();
+void inComment();
+void inQuote(int c);
 int main(){
-    int c, prev;
-    int in_string = 0;
+    int c;
     while((c=getchar())!= EOF){
-        if(c == '"' && prev!= '\\'){
-            in_string = !in_string;
+        if(c == '"'){
+            inQuote(c);
         }
-        if(c == '/' && !in_string){
+        else if(c == '/'){
             if((c=getchar()) == '*'){
-                skipComment();
+                inComment();
             }
             else{
                 putchar('/');
                 putchar(c);
             }
         }
-        else{
+        else
             putchar(c);
-        }
-        prev = c;
+        
     }
     return 0;
 }
 
-void skipComment(){
-    int c;
+void inComment(){
+    int c, d;
     int end = 0;
     while(!end && (c=getchar())!= EOF){
         if((c=getchar()) == '*'){
-            if((c=getchar()) == '/'){
+            if((c=getchar()) == '/')
                 end = 1;
-            }
             else{
                 putchar('*');
                 putchar(c);
             }
         }
+    }
+}
+
+void inQuote(int c){
+    int d;
+    putchar(c);
+    while((d=getchar())!= c){
+        putchar(d);
+        if(d == '\\')
+            getchar();
     }
 }
