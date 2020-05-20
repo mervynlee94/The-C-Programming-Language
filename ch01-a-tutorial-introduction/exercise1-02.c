@@ -14,8 +14,6 @@
 
 #include <stdio.h>
 
-// Compiler warning if unknown escape sequence
-// warning: unknown escape sequence '\q' [-Wunknown-escape-sequence]
 int main(){
     printf("hello, world\v");
 }

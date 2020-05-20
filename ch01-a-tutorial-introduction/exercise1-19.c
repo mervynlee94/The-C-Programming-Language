@@ -15,7 +15,7 @@
 #include <stdio.h>
 #define MAXLINE 1000
 
-// named it getLine due to getline is now a POSIX function declared in stdio.h
+/* named it getLine due to getline is now a POSIX function declared in stdio.h */
 int getLine(char line[], int maxline);
 void reverse(char line[]);
 

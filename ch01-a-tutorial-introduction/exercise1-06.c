@@ -19,7 +19,7 @@ int main(){
 
     printf("The expression getchar() != EFO is %d\n", getchar() != EOF);
     
-    // There is no "EOF character", ctrl-D is translated 
-    // by the terminal driver into the end-of-file condition
-    // 0 is printed when ctrl-D is issued.
+    /* There is no "EOF character", ctrl-D is translated 
+    by the terminal driver into the end-of-file condition
+    0 is printed when ctrl-D is issued. */
 }

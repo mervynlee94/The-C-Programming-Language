@@ -21,7 +21,6 @@ int main(){
     upper = 300;
     step = 20;
 
-    // Heading above the table
     printf("Table of Fahrenheit temperatures to their centigrade or Celsius equivalents\n");
     fahr = lower;
     while(fahr <= upper){

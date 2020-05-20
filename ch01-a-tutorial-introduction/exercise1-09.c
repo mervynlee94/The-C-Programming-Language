@@ -18,7 +18,7 @@ int main(){
    int c;
 
    while((c=getchar()) != EOF){
-    // Not using else statement here since the book hasn't introduce it yet
+    /* Not using else statement here since the book hasn't introduce it yet */
      if(c == ' '){
          while((c=getchar())== ' ')
             ;

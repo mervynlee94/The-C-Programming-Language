@@ -14,8 +14,8 @@
 
 #include <stdio.h>
 
-// Without specific int as return type, compiler will issue a warning
-// warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+/* Without specific int as return type, compiler will issue a warning
+warning: type specifier missing, defaults to 'int' [-Wimplicit-int] */
 int main(){
     printf("hello, world");
 }

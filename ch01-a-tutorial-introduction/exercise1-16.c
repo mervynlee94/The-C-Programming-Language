@@ -14,7 +14,7 @@
 #include <stdio.h>
 #define MAXLINE 10
 
-// named it getLine due to getline is now a POSIX function declared in stdio.h
+/* named it getLine due to getline is now a POSIX function declared in stdio.h */
 int getLine(char line[], int maxline);
 void copy(char to[], char from[]);
 

@@ -18,7 +18,7 @@
 #include <stdio.h>
 #define LIMIT 10
 #define TAB 8
-#define NO_BLANK -1  //signifies no blank found
+#define NO_BLANK -1  /*signifies no blank found */
 
 int lastblank(const char arr[], int len);
 
