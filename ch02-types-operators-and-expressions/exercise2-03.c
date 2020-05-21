@@ -20,7 +20,7 @@ int htoi(char s[]);
 
 int main(void) {
 	int res;
-	res = htoi("0x3AAAEF");
+	res = htoi("3AAAEF");
 	printf("%d", res);
 	return 0;
 }
@@ -31,12 +31,16 @@ int htoi(char s[]){
     if(s[0] == '0' && (s[1] == 'X' || s[1] == 'x')){
         i = 2;
     }
-    for (; (s[i] >= '0' && s[i] <= '9') || (s[i] >= 'A' && s[i] <= 'F'); ++i){
+    for (; (s[i] >= '0' && s[i] <= '9') || (s[i] >= 'A' && s[i] <= 'F')  
+        || (s[i] >= 'a' && s[i] <= 'f'); ++i){
         if(isdigit(s[i])){
             n = n * 16 + (s[i] - '0');
         }
-        else{
+        else if(isupper(s[i])){
             n = n * 16 + (s[i] - 55);
+        }
+        else{
+            n = n * 16 + (s[i] - 87);
         }
     }
     return n;
