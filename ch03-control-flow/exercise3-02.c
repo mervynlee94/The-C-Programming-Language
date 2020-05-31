@@ -24,7 +24,6 @@ int main(){
     int len;
     char s[MAXLINE], t[MAXLINE];
     while((len = getLine(s, MAXLINE)) > 0){
-        printf("%s", s);
         escape(s, t);
     }
     printf("%s", t);
