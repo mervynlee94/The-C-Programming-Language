@@ -32,6 +32,7 @@ void itoa(int n, char s[]){
     if ((sign = n) < 0) 
         npositive = -n; 
     i = 0;
+    npositive = n;
     do { 
         s[i++]=npositive%10+'0';
     } 
