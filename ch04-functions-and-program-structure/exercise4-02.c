@@ -56,7 +56,6 @@ double atof(char s[]){
     esign = s[i++];
     for(exp = 0; isdigit(s[i]); i++)
         exp = 10 * exp + (s[i] - '0');
-    printf("%d", exp);
     tenth = 1;
     while(exp--){
         tenth *= 10;
