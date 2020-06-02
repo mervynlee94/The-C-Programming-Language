@@ -41,10 +41,6 @@ double val[MAXVAL]; /* stack */
 int getop(char []);
 void push(double);
 double pop(void);
-void clear(void);
-void duplicate(void);
-void swap(void);
-double top(void);
 double atof(char s[]);
 void mathfunc(char s[]);
 int strlength(char s[]);
@@ -88,18 +84,6 @@ int main(){
                 else 
                     printf("error: zero divisor\n");
                 break;
-            case 'c':
-                clear();
-                break;
-            case 't':
-                printf("%.8g\n", top());
-                break;
-            case 's':
-                swap();
-                break;
-            case 'd':
-                duplicate();
-                break;
             case '\n':
                 printf("\t%.8g\n", pop());
                 break;
@@ -128,7 +112,7 @@ int getop(char s[]){
         if(strlength(s) > 1)
             return MATHFUNC;
         else 
-            return c;
+            return s[0];
     }
     if(!isdigit(c) && c != '.')
         return c;
