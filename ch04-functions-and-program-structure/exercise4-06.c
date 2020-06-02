@@ -18,7 +18,6 @@
 
 #define MAXOP 100
 #define NUMBER '0'
-#define MATHFUNC 'M'
 #define BUFSIZE 100
 #define MAXVAL 100 /* maximum depth of val stack */
 
@@ -40,16 +39,9 @@ double val[MAXVAL]; /* stack */
  }
 
 int getop(char []);
-void push(double);
 double pop(void);
-void clear(void);
-void duplicate(void);
-void swap(void);
-double top(void);
+void push(double);
 double atof(char s[]);
-void mathfunc(char s[]);
-int strlength(char s[]);
-int strcomp(char s[], char s2[]);
 
 int main(){
     int type, var;
@@ -61,9 +53,6 @@ int main(){
         switch(type){
             case NUMBER:
                 push(atof(s));
-                break;
-            case MATHFUNC:
-                mathfunc(s);
                 break;
             case '+':
                 push(pop() + pop());
@@ -82,31 +71,9 @@ int main(){
                 else 
                     printf("error: zero divisor\n");
                 break;
-            case '%':
-                op2 = pop();
-                if(op2 != 0.0)
-                    push((int)pop() % (int)op2);
-                else 
-                    printf("error: zero divisor\n");
-                break;
-            case 'c':
-                clear();
-                break;
-            case 't':
-                printf("%.8g\n", top());
-                break;
-            case 's':
-                swap();
-                break;
-            case 'd':
-                duplicate();
-                break;
             case '\n':
                 v = pop();
                 printf("\t%.8g\n", v);
-                break;
-            case 'v':
-                push(v);
                 break;
             case '=':
                 pop();
@@ -116,8 +83,10 @@ int main(){
             default:
                 if(type >= 'A' && type <= 'Z')
                     push(variable[type-'A']);
+                else if( s[0] == 'v')
+                    push(v);
                 else
-                    printf("error: unknown command %s\n", s);
+                    printf("error: unknown command %s.\n", s);
                 break;
         }
         var = type;
@@ -131,19 +100,6 @@ int getop(char s[]){
         ;
     s[1] = '\0';
     i = 0;
-    if(islower(c)){
-        while((s[++i] = c = getch()) && islower(c))
-            ;
-        s[i] = '\0';
-        if(c != EOF){
-            ungetch(c);
-        }
-        
-        if(strlength(s) > 1)
-            return MATHFUNC;
-        else 
-            return c;
-    }
     if(!isdigit(c) && c != '.')
         return c;
     
@@ -232,34 +188,4 @@ double atof(char s[]){
         tenth *= 10;
     }
     return (esign == '-') ? sign * (val / power) / tenth : sign * (val / power) * tenth;
-}
-
-int strlength(char s[]){
-    int i;
-    for(i = 0; s[i] != '\0'; ++i)
-        ;
-    return i;
-}
-
-int strcomp(char s[], char s2[]){
-    int i;
-    for(i = 0; (s[i] == s2[i]) && (s[i] != '\0') && (s2[i] != '\0'); ++i)
-        ;
-    if(s[i] == '\0')
-        return 0;
-    return 1;
-}
-
-void mathfunc(char s[]){
-    double op2;
-    if(strcomp(s, "sin") == 0)
-        push(sin(pop()));
-    else if(strcomp(s, "exp") == 0)
-        push(exp(pop()));
-    else if(strcomp(s, "pow") == 0){
-        op2 = pop();
-        push(pow(pop(), op2));
-    }
-    else
-        printf("error: %s is not supported\n", s);
 }
