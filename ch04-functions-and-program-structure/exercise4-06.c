@@ -43,6 +43,10 @@ double pop(void);
 void push(double);
 double atof(char s[]);
 
+/*
+The postfix notation for assigning to variables is like this 10 A =
+10 A = -15 B = A B +
+*/
 int main(){
     int type, var;
     double op2, v, variable[26];
@@ -73,12 +77,15 @@ int main(){
                 break;
             case '\n':
                 v = pop();
+
                 printf("\t%.8g\n", v);
                 break;
             case '=':
                 pop();
                 if(var >= 'A' && var <= 'Z')
                     variable[var-'A'] = pop();
+                else 
+                    printf("error: no variable found\n");
                 break;
             default:
                 if(type >= 'A' && type <= 'Z')
@@ -99,11 +106,10 @@ int getop(char s[]){
     while((s[0] = c = getch()) == ' ' || c == '\t')
         ;
     s[1] = '\0';
-    i = 0;
-    if(!isdigit(c) && c != '.')
+    if(!isdigit(c) && c != '.' && c != '-')
         return c;
-    
-    if(isdigit(c))
+    i = 0;
+    if(c == '-' || isdigit(c))
         while(isdigit(s[++i] = c = getch()))
             ;
     if (c == '.')
@@ -112,6 +118,9 @@ int getop(char s[]){
     s[i] = '\0';
     if(c != EOF)
         ungetch(c);
+    if(s[0] == '-' && s[1] == '\0'){
+        return '-';
+    }
     return NUMBER;
 }
 
