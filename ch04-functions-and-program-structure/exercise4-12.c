@@ -15,7 +15,6 @@
 #include <stdio.h>
 #define MAXLINE 1000
 
-void reverse(char s[]);
 void itoa(int n, char s[]);
 
 int main(){
