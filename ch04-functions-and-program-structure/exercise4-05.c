@@ -114,10 +114,10 @@ int getop(char s[]){
         else 
             return s[0];
     }
-    if(!isdigit(c) && c != '.')
+    if(!isdigit(c) && c != '.' && c != '-')
         return c;
     
-    if(isdigit(c))
+    if(isdigit(c) || c == '-')
         while(isdigit(s[++i] = c = getch()))
             ;
     if (c == '.')
@@ -126,6 +126,9 @@ int getop(char s[]){
     s[i] = '\0';
     if(c != EOF)
         ungetch(c);
+    if(s[0] == '-' && s[1] == '\0'){
+        return '-';
+    }
     return NUMBER;
 }
 
