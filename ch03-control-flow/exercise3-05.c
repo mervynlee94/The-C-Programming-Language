@@ -17,16 +17,16 @@
 #define MAXLINE 1000
 
 void reverse(char s[]);
-void itoa(int n, char s[], int b);
+void itob(int n, char s[], int b);
 
 int main(){
     char s[MAXLINE];
-    itoa(45235134, s, 16);
+    itob(45235134, s, 16);
     printf("%s", s);
     return 0;
 }
 
-void itoa(int n, char s[], int b){
+void itob(int n, char s[], int b){
     int i, sign;
     unsigned int npositive;
     if ((sign = n) < 0) 
