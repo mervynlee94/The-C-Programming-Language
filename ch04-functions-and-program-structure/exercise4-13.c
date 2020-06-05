@@ -33,6 +33,5 @@ void reverse(char s[], int i, int len){
         s[len] = tmp;
         reverse(s, i+1, len-1);
     }
-   
 }   
 
