@@ -24,8 +24,8 @@ int main(){
 }
 
 void mystrcat(char *s, char *t) {
-    while(*s++)
-        if(*s == '\0')
-            while((*s++ = *t++))
-                ;
+    while(*s)
+        s++;
+    while((*s++ = *t++))
+        ;
 }
