@@ -134,31 +134,3 @@ int getop(char *s){
     cur--;
     return NUMBER;
 }
-// int getop(char s[]){
-//     int i, c;
-//     if (line[cur] == '\0'){
-//         if (getLine(line, MAXLINE) == 0)
-//             return EOF;
-//         else
-//             cur = 0;
-//     }
-    
-//     while((s[0] = c = line[cur++]) == ' ' || c == '\t')
-//         ;
-//     s[1] = '\0';
-//     if(!isdigit(c) && c != '.' && c != '-')
-//         return c;
-//     i = 0;
-//     if(isdigit(c) || c == '-')
-//         while(isdigit(s[++i] = c = line[cur++]))
-//             ;
-//     if (c == '.')
-//         while(isdigit(s[++i] = c = line[cur++]))
-//             ;
-//     s[i] = '\0';
-//     if(s[0] == '-' && s[1] == '\0'){
-//         return '-';
-//     }
-//     cur--;
-//     return NUMBER;
-// }
