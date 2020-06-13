@@ -47,7 +47,7 @@ int main(int argc, char *argv[]){
                 }
             }
             while(space_num){
-                putchar('_');
+                putchar(' ');
                 space_num--;
             }
         }
