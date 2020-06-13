@@ -37,9 +37,10 @@ int main(int argc, char *argv[]){
             i = 0;
             putchar('\n');
         }
-        else 
+        else{ 
             putchar(c);
-        i++;
+            i++;
+        }
     }
     return 0;
 }
