@@ -37,12 +37,12 @@ int main(int argc, char *argv[]){
                 if(tab[i] && (space_num % TAB != 0)){
                     
                     while(space_num){
-                        putchar('_');
+                        putchar(' ');
                         space_num--;
                     }
                 }
                 else if(space_num!= 0 && space_num % TAB == 0){
-                    putchar('#');
+                    putchar('\t');
                     space_num = 0;
                 }
             }
