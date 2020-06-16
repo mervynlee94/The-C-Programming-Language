@@ -32,19 +32,19 @@ int main(){
 }
 
 int getch(void){
-     return (bufp > 0) ? buf[--bufp] : getchar();
- }
+    return (bufp > 0) ? buf[--bufp] : getchar();
+}
 
  void ungetch(int c){
     if (bufp >= BUFSIZE)
         printf("ungetch: too many characters\n");
     else
         buf[bufp++] = c;
- }
+}
 
- int getint(int *pn){
-     int c, sign;
-     while(isspace(c = getch()))
+int getint(int *pn){
+    int c, sign;
+    while(isspace(c = getch()))
         ;
     if(!isdigit(c) && c!= EOF && c!= '+' && c != '-'){
         ungetch(c);
@@ -52,10 +52,10 @@ int getch(void){
     }
     sign = (c == '-') ? -1 : 1;
     if (c == '+' || c == '-')
-        c = getch();
+      c = getch();
     if (!isdigit(c)){
-        ungetch(c);
-        return 0;
+       ungetch(c);
+       return 0;
     }
     for(*pn = 0 ; isdigit(c); c = getch())
         *pn = 10 * *pn + (c-'0');
@@ -63,4 +63,4 @@ int getch(void){
     if(c != EOF)
         ungetch(c);
     return c;
- }
+}
